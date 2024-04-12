@@ -8,10 +8,14 @@ html{
   --top-act-group-bg-color: #fff;
   --top-act-group-shadow: 0px 20px 60px 10px rgba(237, 237, 246, 0.20);
   --top-act-group-separate: #EDEDF6;
-  @include abstracts.breakpoints(lg) {
+  @include abstracts.screen(lg) {
     --header-bg-color: #fff;
   }
   --dropdown-bg-color: #FFF;
   --dropdown-shadow-color: 0px 40px 90px 20px rgba(200, 200, 200, 0.40);
   --top-menu-border-color: #D2D1D6;
+
+  // side-bar
+  --sidebar-bg: #fff;
+
 }

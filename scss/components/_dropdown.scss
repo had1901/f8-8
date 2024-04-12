@@ -7,16 +7,15 @@
   width: min(1240px, 100%);
   display: none;
 
-  @include abstracts.breakpoints(lg) {
+  @include abstracts.screen(lg) {
     position: initial;
-    display: block;
     padding-top: 0;
   }
 
   &__inner{
     --inner-max-height: min(582px, 100vh - 158px);
     --inner-padding: 30px;
-
+    
     position: relative;
     height: var(--inner-max-height);
     padding: var(--inner-padding);
@@ -34,16 +33,19 @@
       filter: var(--dropdown-arrow-color);
     }
 
-    @include abstracts.breakpoints(lg) {
+    @include abstracts.screen(lg) {
       border-radius: initial;
       background: transparent;
       box-shadow: initial;
       padding: 0 40px;
       height: auto;
-
-      background: bisque;
       &::before {
         content: none;
+      }
+
+      @include abstracts.screen(sm) {
+      padding: 0 20px;
+
       }
     }
   }
@@ -61,7 +63,7 @@
     border-right: 1px solid var(--top-menu-border-color) ;
     overflow-y: auto;
 
-    @include abstracts.breakpoints(lg) {
+    @include abstracts.screen(lg) {
       width: 100%;
       height: auto;
       border-right: none;
@@ -81,11 +83,11 @@
     width: 36px;
     height: 36px;
 
-    @include abstracts.breakpoints(xl) {
+    @include abstracts.screen(xl) {
       display: none;
     }
 
-    @include abstracts.breakpoints(lg) {
+    @include abstracts.screen(lg) {
       display: block;
       margin-top: 10px;
     }
@@ -113,7 +115,7 @@
     font-weight: 500;
     line-height: 150%; /* 150% */
 
-    @include abstracts.breakpoints(lg){
+    @include abstracts.screen(lg){
       margin-top: 14px;
       margin-bottom: 26px;
     }
@@ -121,7 +123,7 @@
   &__list{
     margin-top: 19px;
 
-    @include abstracts.breakpoints(lg) {
+    @include abstracts.screen(lg) {
       margin-top: 0;
 
     }
@@ -149,15 +151,15 @@
 }
 .sub-menu{
   position: absolute;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: none;
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--inner-padding);
   padding-left: var(--inner-padding);
   inset: 0 0 0 var(--main-column-width);
   overflow-y: auto;
 
-  @include abstracts.breakpoints(lg) {
-    display: none;
+  @include abstracts.screen(lg) {
+    // display: none;
     position: initial;
     grid-template-columns: 1fr;
     padding-left: 0;
@@ -171,7 +173,7 @@
     grid-template-columns: repeat(4, 1fr);
     inset: initial;
 
-    @include abstracts.breakpoints(lg) {
+    @include abstracts.screen(lg) {
       grid-template-columns: 1fr;
       height: auto;
     }

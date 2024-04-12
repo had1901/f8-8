@@ -20,7 +20,27 @@
     <script>
       load("#header", "./template/header.html");
     </script>
-    <div class="container"></div>
+    <div class="container">
+      <!-- Slide show -->
+      <div class="slideshow">
+        <div class="slideshow__inner">
+          <div class="slideshow__item">
+            <a href="#" class="slideshow__link">
+              <picture>
+                <source media="(max-width: 767.98px)" srcset="./assets/img/slideshow/img-md-1.png" />
+                <img src="./assets/img/slideshow/img-1.png" alt="" class="slideshow__img">
+              </picture>
+            </a>
+          </div>
+          
+        </div>
+        <div class="slideshow__page">
+          <span class="slideshow__number">1</span>
+          <span class="slideshow__slider"></span>
+          <span class="slideshow__number">5</span>
+        </div>
+      </div>
+    </div>
     <script>
       load("#footer", "./template/footer.html");
     </script>
