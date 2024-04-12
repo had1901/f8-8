@@ -1,0 +1,179 @@
+@use "../abstracts";
+
+.dropdown{
+  position: absolute;
+  left: 0;
+  padding-top: 54px;
+  width: min(1240px, 100%);
+  display: none;
+
+  @include abstracts.breakpoints(lg) {
+    position: initial;
+    display: block;
+    padding-top: 0;
+  }
+
+  &__inner{
+    --inner-max-height: min(582px, 100vh - 158px);
+    --inner-padding: 30px;
+
+    position: relative;
+    height: var(--inner-max-height);
+    padding: var(--inner-padding);
+    border-radius: 2rem;
+    background: var(--dropdown-bg-color);
+    box-shadow: 0px 40px 90px 20px var(--dropdown-shadow-color);
+    
+
+    &::before {
+      content: url('../icon/dropdonw-arrow.svg');
+      position: absolute;
+      top: -13px;
+      left: var(--arrow-left-pos);
+      transform: translateX(-50%);
+      filter: var(--dropdown-arrow-color);
+    }
+
+    @include abstracts.breakpoints(lg) {
+      border-radius: initial;
+      background: transparent;
+      box-shadow: initial;
+      padding: 0 40px;
+      height: auto;
+
+      background: bisque;
+      &::before {
+        content: none;
+      }
+    }
+  }
+  
+}
+.top-menu{
+  --main-column-width: 292px;
+  --max-inner-height: calc(var(--inner-max-height) - var(--inner-padding) * 2);
+  position: relative;
+  height: 100%;
+
+  &__main{
+    width: var(--main-column-width);
+    height: var(--max-inner-height);
+    border-right: 1px solid var(--top-menu-border-color) ;
+    overflow-y: auto;
+
+    @include abstracts.breakpoints(lg) {
+      width: 100%;
+      height: auto;
+      border-right: none;
+    }
+  }
+}
+.menu-column{
+  display: flex;
+  gap: 14px;
+
+  + .menu-column{
+    margin-top: 30px;
+  }
+  &__icon{
+    position: relative;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+
+    @include abstracts.breakpoints(xl) {
+      display: none;
+    }
+
+    @include abstracts.breakpoints(lg) {
+      display: block;
+      margin-top: 10px;
+    }
+  }
+  &__content{
+    flex: 1;
+  }
+  &__icon-1{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+  }
+  &__icon-2{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+  }
+  &__heading{
+    margin-top: 4px;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 150% */
+
+    @include abstracts.breakpoints(lg){
+      margin-top: 14px;
+      margin-bottom: 26px;
+    }
+  }
+  &__list{
+    margin-top: 19px;
+
+    @include abstracts.breakpoints(lg) {
+      margin-top: 0;
+
+    }
+  }
+  &__item{
+    &--active .sub-menu{
+      display: grid;
+    }
+  }
+  &__item--active > &__link,
+  &__item:hover > &__link{
+      color: #0071DC;
+      font-weight: 500;
+  }
+  &__link{
+    display: block;
+    padding: 7px 0;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 142.857%; /* 142.857% */
+
+    
+  }
+}
+.sub-menu{
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--inner-padding);
+  padding-left: var(--inner-padding);
+  inset: 0 0 0 var(--main-column-width);
+  overflow-y: auto;
+
+  @include abstracts.breakpoints(lg) {
+    display: none;
+    position: initial;
+    grid-template-columns: 1fr;
+    padding-left: 0;
+  }
+
+  &--not-main{
+    height: var(--max-inner-height);
+    padding-left: 0;
+    position: initial;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    inset: initial;
+
+    @include abstracts.breakpoints(lg) {
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+  }
+}

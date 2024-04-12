@@ -1,10 +1,32 @@
 *, ::before, ::after {
   box-sizing: border-box;
 }
+
 html{
   font-size: 62.5%;
 }
 body{
   font-family: Gordita, sans-serif;
   font-size: 1.6rem;
+  color: var(--text-color);
+  background-color: var(--body-bg-color);
+}
+a{
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+button{
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.icon{
+  filter: var(--icon-color);
+}
+button, input, textarea, select, img {
+  font-family: inherit ;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+
 }
